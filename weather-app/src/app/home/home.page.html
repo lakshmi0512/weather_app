@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="text-align:center ; margin:15px;">
+    <ion-label style="font-weight:bold; font-size: 2em;">
+      Weather Forecast
+    </ion-label>
+  </div>
+
+  <ion-searchbar [(ngModel)]="city" (ngModelChange)="loadData()" placeholder="Search for the City" class="searchbar" animated></ion-searchbar>
+<div *ngIf="!loading" style="text-align:center;">
+  <ion-card class="card">
+    <ion-item>
+      <p style="font-weight: 500;color:white;">Today's Report</p>
+      <ion-label slot="end" id="date">{{todayDate | date: "EEE dd MMM"}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <span id="temp">{{(weather.temp - 273.15).toFixed(0)}}</span>
+      <span style="font-size: 1.5em; font-weight: bold; color:#f0d24f;"> o C</span>
+      <img width="180px" height="180px" slot="end" [src]="icon">
+    </ion-item>
+    <ion-item>
+      <ion-icon id="icon" name="Location"></ion-icon>
+      <span>{{city}}</span>
+    </ion-item>
+  </ion-card>
+  <ion-card class="card">
+    <ion-item>
+      <span>Maximum Temp</span>
+      <span slot="end">{{(weather.temp_max- 273.15).toFixed(0)}}</span>
+    </ion-item>
+    <ion-item>
+      <span>Minimum Temp</span>
+      <span slot="end">{{(weather.temp_min- 273.15).toFixed(0)}}</span>
+    </ion-item>
+    <ion-item>
+      <span>Humidity</span>
+      <span slot="end">{{weather.humidity}}</span>
+    </ion-item>
+  </ion-card>
+  <ion-button style="font-size: 0.7em;" [routerLink]="['/details']">
+    Get Detailed Report
+  </ion-button>
+</div>
+<div style="text-align: center; margin-top:50px;" *ngIf="loading">
+  <img style="border-radius: 50%;" src="../../assets/loading.gif"/>
+</div>
+</ion-content>

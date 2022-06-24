@@ -1,0 +1,20 @@
+.image{
+    display: block;
+    margin-left:auto;
+    margin-top:100px;
+    margin-right: auto;
+    text-align: center;
+}
+.text{
+    display: block;
+    margin-left:auto;
+    margin-top:10px;
+    margin-right: auto;
+    text-align: center;
+    color:white;
+    font-weight: 500;
+    font-size: 2em;
+}
+#button{
+    --ion-background-color:rgb(135, 189, 34);
+}
