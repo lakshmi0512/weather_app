@@ -18,7 +18,7 @@
     </ion-item>
     <ion-item>
       <span id="temp">{{(weather.temp - 273.15).toFixed(0)}}</span>
-      <span style="font-size: 1.5em; font-weight: bold; color:#f0d24f;"> o C</span>
+      <span style="font-size: 1.5em; font-weight: bold; color:#f0d24f;"> °C</span>
       <img width="180px" height="180px" slot="end" [src]="icon">
     </ion-item>
     <ion-item>
@@ -29,18 +29,18 @@
   <ion-card class="card">
     <ion-item>
       <span>Maximum Temp</span>
-      <span slot="end">{{(weather.temp_max- 273.15).toFixed(0)}}</span>
+      <span slot="end">{{(weather.temp_max- 273.15).toFixed(0)}}°C</span>
     </ion-item>
     <ion-item>
       <span>Minimum Temp</span>
-      <span slot="end">{{(weather.temp_min- 273.15).toFixed(0)}}</span>
+      <span slot="end">{{(weather.temp_min- 273.15).toFixed(0)}}°C</span>
     </ion-item>
     <ion-item>
       <span>Humidity</span>
-      <span slot="end">{{weather.humidity}}</span>
+      <span slot="end">{{weather.humidity}} G.m-3</span>
     </ion-item>
   </ion-card>
-  <ion-button style="font-size: 0.7em;" [routerLink]="['/details']">
+  <ion-button style="font-size: 0.7em;" (click)="gotodetails(this.city)">
     Get Detailed Report
   </ion-button>
 </div>
