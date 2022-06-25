@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { NavigationExtras } from '@angular/router';
+import { Router } from  '@angular/router';
 
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
@@ -19,7 +21,9 @@ export class HomePage {
   name="";
   loading = true;
 
-  constructor(public httpClient:HttpClient) {
+  constructor(public httpClient:HttpClient,
+    private route:Router
+    ) {
     // this.loadData()
   }
 
@@ -34,4 +38,12 @@ export class HomePage {
       this.loading = false;
     })
   }
+
+  gotodetails(city){
+
+    let navigationExtras: NavigationExtras = city; 
+    this.route.navigate(['/details'], navigationExtras);
+     console.log(this.city);
+      }
+    
 }

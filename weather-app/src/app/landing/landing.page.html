@@ -2,14 +2,15 @@
 
   <ion-content style="--ion-background-color:#49b5e8;">
     <div class="text">
-      <p><span>Find</span> <span> weather forecast for your City</span></p>
+      <p [@fadeInOut]><span>Find</span> <span> Weather Forecast for your City</span></p>
+      <ion-icon id="icon" name="Location"></ion-icon>
     </div>
   <div class="image">
-    <img src="../../assets/landing.gif"/>
+    <img [@bounce]="animState" (@bounce.done)="animDone()" src="../../assets/landing.gif"/>
   </div>
   <div class="text">
-    <p>Easy Steps!</p>
-    <ion-button style="font-size: 0.7em;"[routerLink]="['/home']">
+    <p [@fadeInOut]>Easy Steps!</p>
+    <ion-button style="font-size: 0.7em;" [routerLink]="['/home']">
       Get Started!
     </ion-button>
   </div>

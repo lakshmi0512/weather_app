@@ -1,9 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-title style="font-weight:bold; font-size: 2em;text-align: center;">Detailed Weather Report of {{this.city}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card class="card">
+    <ion-item lines="none">
+      <span id="temp">{{(this.feels- 273.15).toFixed(0)}}</span>
+      <span style="font-size: 1.5em; font-weight: bold; color:#f0d24f;">  °C</span>
+      <img width="180px" height="180px" slot="end" [src]="icon">
+    </ion-item>
+    <ion-item>
+      <span>Real Feel</span>
+      <span slot="end">{{this.main}}</span>
+    </ion-item>
+    <ion-item>
+      <span>Description</span>
+      <span slot="end">{{this.desc}}</span>
+    </ion-item>
+    <ion-item>
+      <span>Wind Speed</span>
+      <span slot="end">{{this.windspeed}} m/s</span>
+    </ion-item>
+    <ion-item>
+      <span>Wind Direction</span>
+      <span slot="end">{{this.direction}} degrees</span>
+    </ion-item>
+    <ion-item>
+      <span>Pressure</span>
+      <span slot="end">{{this.pressure}} Pa</span>
+    </ion-item>
+    <ion-item>
+      <span>Humidity</span>
+      <span slot="end">{{this.humidity}} G.m-3</span>
+    </ion-item>
+    <ion-item>
+      <span>Latitude</span>
+      <span slot="end">{{this.lat}}°</span>
+    </ion-item>
+    <ion-item>
+      <span>Longitude</span>
+      <span slot="end">{{this.long}}°</span>
+    </ion-item>
+  </ion-card>
 </ion-content>
